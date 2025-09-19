@@ -132,10 +132,20 @@ is_elevated(void)
      * we can say that we are in an elevated context.
      */
 
-    Oid currentUserId = GetUserId();
-    Oid sessionUserId = GetSessionUserId();
-
+    int secContext = 0;
+    Oid currentUserId = InvalidOid;
+    Oid sessionUserId;
     bool is_superuser;
+    
+    /* when starting up we can't call GetUserId() because
+     * that requires a valid user to be set. Check manually
+     * and bail out if that is the case.
+     */
+    GetUserIdAndSecContext(&currentUserId, &secContext);
+    if (!OidIsValid(currentUserId))
+        return false;
+
+    sessionUserId = GetSessionUserId();
 
     /* short circuit if the current and session user are the same
      * saves on a slightly more expensive role fetch
