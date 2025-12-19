@@ -65,9 +65,9 @@ static bool allowed_guc_change_check_hook(bool *newval, void **extra, GucSource 
  */
 static const char *reserved_func_names[] = {
     //"pg_read_file",
-                                            "pg_read_file_off_len",
-                                            "pg_read_file_v2",
-                                            "pg_read_file_all",
+    //                                        "pg_read_file_off_len",
+    //                                        "pg_read_file_v2",
+    //                                        "pg_read_file_all",
                                             "pg_read_binary_file",
                                             "pg_read_binary_file_all",
                                             "pg_read_binary_file_off_len",
