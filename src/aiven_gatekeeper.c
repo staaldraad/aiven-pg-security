@@ -459,7 +459,7 @@ gatekeeper_checks(PROCESS_UTILITY_PARAMS)
                         return;
                     }
                 }
-                else if (strncmp(funcLang, "internal", 9) == 0 && (pg_security_agent_strict || creating_extension || is_elevated() || is_security_restricted()))
+                else if (strncmp(funcLang, "internal", 9) == 0 && (pg_security_agent_strict))
                 {
                     checkBody = true;
                 }
