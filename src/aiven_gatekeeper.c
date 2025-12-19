@@ -63,7 +63,8 @@ static bool allowed_guc_change_check_hook(bool *newval, void **extra, GucSource 
  * as these can be abused in to get local filesystem access or as a step
  * in gaining code execution.
  */
-static const char *reserved_func_names[] = {"pg_read_file",
+static const char *reserved_func_names[] = {
+    //"pg_read_file",
                                             "pg_read_file_off_len",
                                             "pg_read_file_v2",
                                             "pg_read_file_all",
