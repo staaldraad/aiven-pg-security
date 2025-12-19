@@ -136,7 +136,7 @@ is_elevated(void)
     Oid currentUserId = InvalidOid;
     Oid sessionUserId;
     bool is_superuser;
-    
+
     /* when starting up we can't call GetUserId() because
      * that requires a valid user to be set. Check manually
      * and bail out if that is the case.
@@ -510,7 +510,7 @@ gatekeeper_checks(PROCESS_UTILITY_PARAMS)
  * this function isn't exported by fmgr.c, so just
  * recreate it here
  */
-static const FmgrBuiltin *
+const FmgrBuiltin *
 fmgr_lookupByName(const char *name)
 {
     int i;
