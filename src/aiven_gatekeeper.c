@@ -594,7 +594,7 @@ gatekeeper_oa_hook(ObjectAccessType access,
                     if (reserved_func_oids[i] == objectId)
                     {
                         /* check if we are in a privileged context and disallow the function executions */
-                        if (pg_security_agent_strict || creating_extension || is_elevated() || is_security_restricted())
+                        if (pg_security_agent_strict)
                         {
                             /* get the function information so that error message can be more friendly */
                             if ((builtin = fmgr_lookupByName(reserved_func_names[i])) != NULL)
